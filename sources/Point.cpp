@@ -42,7 +42,7 @@ namespace ariel{
     }
 
     void Point::print(){
-        cout <<"( " <<this->x<<" , "<<this->y<<" )"<<endl;
+        cout <<"(" <<this->x<<", "<<this->y<<")"<<endl;
     }
 
     double Point::getX(){

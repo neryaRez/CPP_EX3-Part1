@@ -26,6 +26,9 @@ int main() {
     cout <<((a.getX() == c.getX()) && (a.getY() == c.getY()))<<endl;
     cout <<"a.x ==" <<c.getX()<<", a.y== "<<c.getY()<<" "<<endl;
 
+    a.print();
+    b.print();
+
 
 
 
