@@ -5,13 +5,16 @@ using namespace std;
 
 namespace ariel{
 
-Ninja::Ninja(string name, Point& Location) :Character::Character(name, Location){}
+Ninja::Ninja(const char* name, Point Location) :Character::Character(name, Location){
+    this->type = 'N';
+}
 
 void Ninja::slash(Character* enemy){
     if(this->isAlive() && this->distance(enemy) <= 1){
         enemy->hit(40);
     }
 }
+
 
 void Ninja::move(Character* enemy){
 
@@ -28,19 +31,22 @@ void Ninja::move(Character* enemy){
     
 }
 
- void Ninja::print() {
+ string Ninja::print() {
+    string str = "";
     if (this->isAlive())
     {
-        cout <<"N "<<this->getName()<<endl;
-        cout <<"Life points: "<<this->hit_Points<<endl;
+        str +=("N "+this->getName()+"\n");
+        str +=("Life points: "+to_string(this->hit_Points));
+        str +="\n";
 
     }
     else
     {
-        cout <<"("<<this->getName()<<")"<<endl;
+        str+= ("(" +this->getName() + ")" +"\n");
     }
-    this->location.print();
-    cout<<endl;
+    str+=location.print();
+    str+="\n";
+    return str;
  }
 
 

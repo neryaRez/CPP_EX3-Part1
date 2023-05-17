@@ -3,7 +3,9 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
+using namespace std;
 namespace ariel{
 
 class Point
@@ -15,7 +17,7 @@ public:
     Point(double x, double y);
     double distance(const Point& other) const;
     static Point moveTowards(const Point& source, const Point& dest, double dist);
-    void print();
+    string print();
     double getX();
     double getY();
 

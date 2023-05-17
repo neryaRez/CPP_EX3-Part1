@@ -5,7 +5,8 @@ using namespace std;
 
 namespace ariel{
 
-    Cowboy::Cowboy(string name, Point& Location): Character::Character(name, Location){
+    Cowboy::Cowboy(const char* name, Point Location): Character::Character(name, Location){
+        this->type = 'C';
         this->hit_Points = 110;
         this->boolets = 6;
     }
@@ -22,19 +23,23 @@ namespace ariel{
     void Cowboy::reload(){
         this->boolets = 6;
     }
-    void Cowboy::print(){
+    string Cowboy::print(){
+        string str = "";
         if (this->isAlive())
-    {
-        cout <<"C "<<this->getName()<<endl;
-        cout <<"Life points: "<<this->hit_Points<<endl;
+        {
+            str +=("C "+this->getName()+"\n");
+            str +=("Life points: "+to_string(this->hit_Points));
+            str +="\n";
 
-    }
-    else
-    {
-        cout <<"("<<this->getName()<<")"<<endl;
-    }
-    this->location.print();
-    cout<<endl;
+        }
+        else
+        {
+            str+= ("(" +this->getName() + ")" +"\n");
+        }
+        str+=location.print();
+        str+="\n";
+        return str;
+
     }
 
 

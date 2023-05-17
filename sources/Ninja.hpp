@@ -9,12 +9,16 @@ class Ninja : public Character
 {
 protected:
     int speed;
-    Ninja(string name, Point& Location);
+    Ninja(const char* name, Point Location);
 
 public:
     void move(Character* enemy);
     void slash(Character* enemy);
-    void print() override;
+    string print() override;
+    // ~Ninja() override{
+    //     delete this;
+    // }
+    
     
 };
 

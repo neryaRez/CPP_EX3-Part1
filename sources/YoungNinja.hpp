@@ -8,7 +8,7 @@ class YoungNinja : public Ninja
 private:
     
 public:
-    YoungNinja(string name, Point& Location): Ninja::Ninja(name, Location){
+    YoungNinja(const char* name, Point Location): Ninja::Ninja(name, Location){
         this->hit_Points = 100;
         this->speed = 14;
     } 

@@ -41,8 +41,10 @@ namespace ariel{
 
     }
 
-    void Point::print(){
-        cout <<"(" <<this->x<<", "<<this->y<<")"<<endl;
+    string Point::print(){
+        string str ="";
+        str += ( "(" + to_string(this->x) +", "+to_string(this->y)+")"+"\n" );
+        return str;
     }
 
     double Point::getX(){

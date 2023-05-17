@@ -11,8 +11,9 @@ TEST_SUITE("Point class tests") {
     Point n1{-1, 1};
     Point n2{1, -9};
     Point n3{-1, -1};
+    Point n4{0,0};
 
-    TEST_CASE("Distance method") {
+    TEST_CASE("Point Class - Methods:") {
         CHECK_EQ(p1.distance(p2), p2.distance(p1));
         CHECK_EQ(n1.distance(n2), n2.distance(n1));
         CHECK_EQ(n3.distance(p1), p1.distance(n3));
@@ -20,9 +21,9 @@ TEST_SUITE("Point class tests") {
         CHECK_EQ(n2.distance(p1), 10);
         CHECK_EQ(p2.distance(n3), 5);
         CHECK_EQ(p1.distance(p1), 0);
-    }
 
-    TEST_CASE("moveTowards method") {
+        CHECK_EQ(p1.distance(n4), sqrt(2));
+    
         double distance = p1.distance(p2);
         double half_p = distance / 2;
         double third_p = distance / 3;
@@ -35,6 +36,29 @@ TEST_SUITE("Point class tests") {
 
         // There is no such a thing as negative distance
         CHECK_THROWS_AS(Point::moveTowards(p1, p2, -1),std::invalid_argument);
+    
     }
 
+    TEST_CASE("Ninja Class - Methods:"){
+        CHECK_EQ(p1.distance(p2), p2.distance(p1));
+        CHECK_EQ(n1.distance(n2), n2.distance(n1));
+        CHECK_EQ(n3.distance(p1), p1.distance(n3));
+
+        CHECK_EQ(n2.distance(p1), 10);
+        CHECK_EQ(p2.distance(n3), 5);
+        CHECK_EQ(p1.distance(p1), 0);
+
+        CHECK_EQ(p1.distance(n4), sqrt(2));
+
+        CHECK_EQ(p1.distance(p2), p2.distance(p1));
+        CHECK_EQ(n1.distance(n2), n2.distance(n1));
+        CHECK_EQ(n3.distance(p1), p1.distance(n3));
+
+        CHECK_EQ(n2.distance(p1), 10);
+        CHECK_EQ(p2.distance(n3), 5);
+        CHECK_EQ(p1.distance(p1), 0);
+
+        CHECK_EQ(p1.distance(n4), sqrt(2));
+    }
 }
+

@@ -45,25 +45,39 @@ int main() {
 
    Yogi.move(&Sensei_Wu);
 
-   Yogi.print();
+   cout <<Yogi.print();
    cout<<endl;
 
    Point p3(0,0), p4(10,10);
 
    YoungNinja Yoshi("Yoshi", p3);
    OldNinja Madara("Madara", p4);
-   Yoshi.print();
+   cout <<Yoshi.print();
    cout <<endl;
 
    
    Yoshi.move(&Madara);
 
-   Yoshi.print();
+   cout <<Yoshi.print();
 
    Yoshi.slash(&Madara);
 
    Madara.print();
 
+   Point p_1(0,0), p_2(0,1), p_3(1.4, 3.6), p_4(4,4.4), p5(4,14);
+
+   Character* Naruto = new YoungNinja("Naruto", p_1);
+   Character* Sasuke = new TrainedNinja("Sasuke", p_2);
+   Character* Obito = new OldNinja("Obito", p_3);
+   Character* Bil = new Cowboy("Bil", p_4);
+
+   Team tim(Naruto);
+   cout <<"1\n";
+   tim.add(Sasuke);
+   tim.add(Obito);
+   tim.add(Bil);
+
+   tim.print();
 
 
 
@@ -72,38 +86,46 @@ int main() {
 
 
 
-   // Character ch("moshe", a);
-   // cout <<"this is the location of ch: \n";
-   // ch.getLocation().print();
 
-   // ch.print();
+  //  // Character ch("moshe", a);
+  //  // cout <<"this is the location of ch: \n";
+  //  // ch.getLocation().print();
 
-   //  Cowboy *tom = new Cowboy("Tom", a);
-   //  OldNinja *sushi = new OldNinja("sushi", b);
-   //  tom->shoot(sushi);
-   //  cout << tom->print() <<endl;
+  //  // ch.print();
 
-   //  sushi->move(tom);
-   //  sushi->slash(tom);
+    Cowboy *tom = new Cowboy("Tom", a);
+    OldNinja *sushi = new OldNinja("sushi", b);
+    tom->shoot(sushi);
+    cout << tom->print() <<endl;
 
-   //  Team team_A(tom); 
-   //  team_A.add(new YoungNinja("Yogi", Point(64,57)));
+    sushi->move(tom);
+    sushi->slash(tom);
 
-   //  // Team b(tom); should throw tom is already in team a
-
-   //   Team team_B(sushi);
-   //   team_B.add(new TrainedNinja("Hikari", Point(12,81)));
+    Team team_A(tom); 
 
 
-   //   while(team_A.stillAlive() > 0 && team_B.stillAlive() > 0){
-   //      team_A.attack(&team_B);
-   //      team_B.attack(&team_A);
-   //      team_A.print();
-   //      team_B.print();
-   //   }
+    Point point(64,57);
+    Character* Y1 = new YoungNinja("Yogi", Point(64,57));
+    team_A.add(Y1);
 
-   //   if (team_A.stillAlive() > 0) cout << "winner is team_A" << endl;
-   //   else cout << "winner is team_B" << endl;
+
+     team_A.add(new YoungNinja("Yogi", Point(64,57)));
+
+  //   // Team b(tom); should throw tom is already in team a
+
+  //    Team team_B(sushi);
+  //    team_B.add(new TrainedNinja("Hikari", Point(12,81)));
+
+
+  //    while(team_A.stillAlive() > 0 && team_B.stillAlive() > 0){
+  //       team_A.attack(&team_B);
+  //       team_B.attack(&team_A);
+  //       team_A.print();
+  //       team_B.print();
+  //    }
+
+  //    if (team_A.stillAlive() > 0) cout << "winner is team_A" << endl;
+  //    else cout << "winner is team_B" << endl;
 
      return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack. 
 
