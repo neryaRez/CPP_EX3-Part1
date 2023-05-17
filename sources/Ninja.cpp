@@ -27,10 +27,11 @@ void Ninja::move(Character* enemy){
     }
     
 }
+
  void Ninja::print() {
     if (this->isAlive())
     {
-        cout <<this->getName()<<endl;
+        cout <<"N "<<this->getName()<<endl;
         cout <<"Life points: "<<this->hit_Points<<endl;
 
     }
@@ -39,6 +40,7 @@ void Ninja::move(Character* enemy){
         cout <<"("<<this->getName()<<")"<<endl;
     }
     this->location.print();
+    cout<<endl;
  }
 
 

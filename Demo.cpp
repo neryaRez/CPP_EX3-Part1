@@ -55,7 +55,7 @@ int main() {
    Yoshi.print();
    cout <<endl;
 
-
+   
    Yoshi.move(&Madara);
 
    Yoshi.print();

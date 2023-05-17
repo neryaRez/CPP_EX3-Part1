@@ -9,8 +9,9 @@ class Ninja : public Character
 {
 protected:
     int speed;
-public:
     Ninja(string name, Point& Location);
+
+public:
     void move(Character* enemy);
     void slash(Character* enemy);
     void print() override;
