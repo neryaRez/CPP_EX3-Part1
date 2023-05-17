@@ -15,7 +15,9 @@ using namespace std;
 #include "sources/Team.hpp" //no need for other includes
 #include "sources/Point.hpp"
 #include "sources/Character.hpp"
-#include "sources/Ninja.hpp"
+#include "sources/OldNinja.hpp"
+#include "sources/TrainedNinja.hpp"
+#include "sources/YoungNinja.hpp"
 using namespace ariel;
 
 
@@ -31,8 +33,44 @@ int main() {
     a.print();
     b.print();
 
-   Ninja s("Yogi", a);
-   s.print();
+   // Ninja s("Yogi", a);
+   // s.print();
+
+   Point p1(0,0), p2(2,0);
+
+   YoungNinja Yogi("Yogi", p1);
+   Yogi.print();
+
+   OldNinja Sensei_Wu("Sensei Wu",p2);
+
+   Yogi.move(&Sensei_Wu);
+
+   Yogi.print();
+   cout<<endl;
+
+   Point p3(0,0), p4(10,10);
+
+   YoungNinja Yoshi("Yoshi", p3);
+   OldNinja Madara("Madara", p4);
+   Yoshi.print();
+   cout <<endl;
+
+
+   Yoshi.move(&Madara);
+
+   Yoshi.print();
+
+   Yoshi.slash(&Madara);
+
+   Madara.print();
+
+
+
+
+
+
+
+
 
    // Character ch("moshe", a);
    // cout <<"this is the location of ch: \n";
