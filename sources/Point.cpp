@@ -2,7 +2,7 @@
 #include "Point.hpp"
 
 using namespace std;
-using namespace ariel;
+// using namespace ariel;
 
 namespace ariel{
 

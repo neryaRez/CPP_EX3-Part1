@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
+#include <string>
 
 namespace ariel{
 
@@ -13,7 +14,7 @@ private:
 public:
     Point(double x, double y);
     double distance(const Point& other) const;
-    static Point moveTowards(const Point& p1, const Point& p2, double dist);
+    static Point moveTowards(const Point& source, const Point& dest, double dist);
     void print();
     double getX();
     double getY();

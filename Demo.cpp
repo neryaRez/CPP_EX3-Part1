@@ -14,6 +14,8 @@ using namespace std;
 
 #include "sources/Team.hpp" //no need for other includes
 #include "sources/Point.hpp"
+#include "sources/Character.hpp"
+#include "sources/Ninja.hpp"
 using namespace ariel;
 
 
@@ -29,8 +31,14 @@ int main() {
     a.print();
     b.print();
 
+   Ninja s("Yogi", a);
+   s.print();
 
+   // Character ch("moshe", a);
+   // cout <<"this is the location of ch: \n";
+   // ch.getLocation().print();
 
+   // ch.print();
 
    //  Cowboy *tom = new Cowboy("Tom", a);
    //  OldNinja *sushi = new OldNinja("sushi", b);
