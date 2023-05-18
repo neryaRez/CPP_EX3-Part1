@@ -49,8 +49,8 @@ Character::Character(const char* Name, Point Location): name(Name), location(Loc
       this->is_leader = true;
  }
    bool Character::isLeader(){
-      return this->is_leader;
-}
+         return this->is_leader;
+ }
 
 
    

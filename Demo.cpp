@@ -64,23 +64,39 @@ int main() {
 
    Madara.print();
 
-   Point p_1(0,0), p_2(0,1), p_3(1.4, 3.6), p_4(4,4.4), p5(4,14);
+   Point p_1(0,0), p_2(0,3), p_3(2, 0), p_4(-2, 0), p5(0,-1);
 
    Character* Naruto = new YoungNinja("Naruto", p_1);
    Character* Sasuke = new TrainedNinja("Sasuke", p_2);
    Character* Obito = new OldNinja("Obito", p_3);
    Character* Bil = new Cowboy("Bil", p_4);
+   Character* raimond = new Cowboy("Raimond", p5);
 
    Team tim(Naruto);
    cout <<"1\n";
    tim.add(Sasuke);
    tim.add(Obito);
    tim.add(Bil);
+   tim.add(raimond);
 
    tim.print();
 
+   cout <<"the closeest member is:\n";
+   size_t close = tim.closest_toLeader(tim.get_Team());
+   cout <<"close == "<<close<<endl;
+   cout <<tim.get_Team()[close]->print();
+   cout <<"\n";
+
+   cout <<"the leader is: \n";
+   cout <<tim.get_Leader()->print()<<endl;
+
+   cout <<tim.get_Leader()->isLeader()<<endl;
+   cout<<tim.get_Team()[2]->isLeader()<<endl; 
+
+   
 
 
+    
 
 
 

@@ -12,8 +12,8 @@ class Team
 private:
     vector <Character*> my_team;
     Character* leader;
-    bool has_leader = false;
-    void setLeader();
+    // bool has_leader = false;
+    void check_Leader();
     
 public:
     Team(Character* lead);
@@ -24,6 +24,8 @@ public:
     int stillAlive();
 
     void attack(Team* enemies);
+    vector <Character*> get_Team();
+    Character* get_Leader();
 
 
 };
