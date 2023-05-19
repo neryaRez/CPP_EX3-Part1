@@ -19,11 +19,12 @@ public:
     Team(Character* lead);
     ~Team();
     void add(Character* member);
-    void print();
-    size_t closest_toLeader(vector<Character*> team);
-    int stillAlive();
 
-    void attack(Team* enemies);
+    virtual void print();
+    virtual size_t closest_toLeader(vector<Character*> team);
+    virtual void attack(Team* enemies);
+    
+    int stillAlive();
     vector <Character*> get_Team();
     Character* get_Leader();
 
