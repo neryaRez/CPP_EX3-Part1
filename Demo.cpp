@@ -82,7 +82,7 @@ int main() {
    tim.print();
 
    cout <<"the closeest member is:\n";
-   size_t close = tim.closest_toLeader(tim.get_Team());
+   size_t close = tim.closest_to_Member( tim.get_Leader(), &tim);
    cout <<"close == "<<close<<endl;
    cout <<tim.get_Team()[close]->print();
    cout <<"\n";
@@ -100,9 +100,14 @@ int main() {
 
    //  tim.call_print2();
 
+   Cowboy* france =  new Cowboy("france", Point(22,22));
+   Cowboy* france1 = new Cowboy("france", Point(22,22));
 
-
-
+   cout <<"france.name == france1.name ?? "<<"the answer is: "<<(france->equals(france1))<<endl;
+   cout <<"france.Location == france1.location ?? "<<"the answer is: "<<(france->getLocation() == france1->getLocation())<<endl;
+   // cout <<"france.hit == france1.hit ?? "<<"the answer is: "<<(france. == france1)<<endl;
+   cout <<"france.is_lead == france1.is_lead ?? "<<"the answer is: "<<(france->isLeader() == france1->isLeader())<<endl;
+   cout <<"france.type == france1.type ?? "<<"the answer is: "<<(france->getType() == france1->getType())<<endl;
 
 
   //  // Character ch("moshe", a);
