@@ -26,7 +26,6 @@ TEST_SUITE("Point Class") {
 
         CHECK_EQ(p1.distance(n3), sqrt(2));
 
-        // There is no such a thing as negative distance
         CHECK_THROWS_AS(Point::moveTowards(p1, n4, -1),std::invalid_argument);
         
         Point p0(sqrt(2),sqrt(2));
@@ -224,12 +223,15 @@ TEST_SUITE("Point Class") {
             CHECK_THROWS(a2.add(Naruto));
             CHECK_THROWS(a2.add(Nezuko));
 
+            CHECK_THROWS(Team(Josef));
+            CHECK_THROWS(Team(Raimond));
+
 
         }
 
         TEST_CASE("Closest Function"){
 
-            Character* close = a1.get_Team()[a1.closest_to_Member(a1.get_Leader(), &a2)];
+            Character* close = a2.get_Team()[a1.closest_to_Member(a1.get_Leader(), &a2)];
 
             CHECK(close == Josef);
 
@@ -241,6 +243,59 @@ TEST_SUITE("Point Class") {
         }
 
         TEST_CASE("Battle Royal"){
+
+            a1.attack(&a2);
+
+            CHECK(Josef->get_lives() == 90);
+            CHECK_EQ(Naruto->getLocation(), Point(0,0));
+            CHECK_EQ(Sasuke->getLocation(), Point(14,0));
+            CHECK_EQ(Sakura->getLocation(), Point(28,0));
+            CHECK_EQ(Shinobi->getLocation(), Point(42,0));
+
+            a1.attack(&a2);
+
+            CHECK(Josef->get_lives() == 70);
+            CHECK_EQ(Naruto->getLocation(), Point(-7,0));
+            CHECK_EQ(Sasuke->getLocation(), Point(0,0));
+            CHECK_EQ(Sakura->getLocation(), Point(14,0));
+            CHECK_EQ(Shinobi->getLocation(), Point(28,0));
+
+            a1.attack(&a2);
+
+            CHECK(Josef->get_lives() == 10);
+            CHECK_EQ(Naruto->getLocation(), Point(-7,0));
+            CHECK_EQ(Sasuke->getLocation(), Point(-7,0));
+            CHECK_EQ(Sakura->getLocation(), Point(0,0));
+            CHECK_EQ(Shinobi->getLocation(), Point(14,0));
+
+            a2.attack(&a1);
+
+            CHECK(Naruto->get_lives() == 70);
+            CHECK_EQ(Tanjiro->getLocation(), Point(-7,0));
+            CHECK_EQ(Nezuko->getLocation(), Point(-14,0));
+            CHECK_EQ(Gyomei->getLocation(), Point(-7,0));
+
+            a2.attack(&a1);
+
+            CHECK_FALSE(Naruto->isAlive());
+
+
+        }
+
+        TEST_CASE("Battle Royal Special Cases"){
+
+            CHECK_THROWS(a1.attack(&a1));
+
+            while (a1.stillAlive() > 0 && a2.stillAlive() > 0)
+            {
+                a1.attack(&a2);
+                a2.attack(&a1);
+            }
+
+            
+            CHECK_THROWS(a1.attack(&a2));
+            CHECK_THROWS(a2.attack(&a1));
+            CHECK_THROWS(a1.attack(nullptr));
             
         }
 
