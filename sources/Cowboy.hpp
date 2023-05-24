@@ -15,9 +15,7 @@ public:
     bool hasboolets();
     void reload();
     string print() override;
-    // ~Cowboy() override{
-    //     delete this;
-    // }
+    int getBoolets();
     
 };
 

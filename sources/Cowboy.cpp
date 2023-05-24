@@ -57,6 +57,10 @@ namespace ariel{
 
     }
 
+    int Cowboy::getBoolets(){
+        return this->boolets;
+    }
+
 
 
 

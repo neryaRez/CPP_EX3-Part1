@@ -57,6 +57,10 @@ void Ninja::move(Character* enemy){
     return str;
  }
 
+ int Ninja::getSpeed(){
+    return this->speed;
+ }
+
 
 
 
